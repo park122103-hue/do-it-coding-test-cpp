@@ -3,7 +3,8 @@
 #include <algorithm>
 
 using namespace std;
-
+//N개의 수중 좋은 수의 갯수 구하기
+//좋은 수: N개의 수중 다른 두 수의 합이 될 수 있는 수
 int main() {
     int N;
 
