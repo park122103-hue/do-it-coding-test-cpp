@@ -2,7 +2,7 @@
 #include <vector>
 
 using namespace std;
-//문자열이 주어졋을 때 이를 수열로 변환하고 수열의 합을 구하라
+//문자열이 주어졋을 때 이를 수열로 변환하고 수열의 합을 구하는 프로그램
 int main() {
     int n;    //수열 길이
     string str;    //문자열(수열)
