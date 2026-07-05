@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int tmp;
+    int N, M;
+    vector<vector<int>> S(1025, vector<int>(1025));
+
+    cin >> N >> M;
+    for (int x = 1; x <= N; x++) {
+        for (int y = 1; y <= N; y++) {
+            cin >> tmp;
+            S[x][y] = tmp + S[x][y - 1] + S[x - 1][y] - S[x - 1][y - 1];
+        }
+    }
+
+    int x1, y1, x2, y2;
+    for (int i = 1; i <= M; i++) {
+        cin >> x1 >> y1 >> x2 >> y2;
+        cout << S[x2][y2] - S[x2][y1 - 1] - S[x1 - 1][y2] + S[x1 - 1][y1 - 1] << '\n';
+    }
+}
