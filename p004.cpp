@@ -2,11 +2,11 @@
 #include <vector>    //벡터 자료형
 
 using namespace std;
-
+//정사각행렬 A(x,y)에서 직사각형 내의 행렬 구간합을 구하는 프로그램
 int main() {
     int tmp;
-    int N, M;    //2차원 정사각 수열의 길이(NxN), 질의의 수
-    vector<vector<int>> S(1025, vector<int>(1025));    //직사각형(x<i, y<j) 구간 내 수열의 구간합
+    int N, M;    //2차원 정사각행렬의 길이(NxN), 질의의 수
+    vector<vector<int>> S(1025, vector<int>(1025));    //직사각형(x<i, y<j) 내의 행렬 구간합
     cin >> N >> M;
     //초기 조건 대신 S(0,y)=S(x,0)=0이다
     //관계식  S(x,y)=A(x,y)+S(x,y-1)+S(x-1,y)-S(x-1,y-1)
@@ -16,7 +16,7 @@ int main() {
             S[x][y] = tmp + S[x][y - 1] + S[x - 1][y] - S[x - 1][y - 1];
         }
     }
-    //질의: 직사각형(x1<=x<=x2, y1<=y<=y2) 구간 내 수열의 합을 구하라
+    //질의: 직사각형(x1<=x<=x2, y1<=y<=y2) 구간 내 행렬의 합을 구하라
     //답: ANS=S(x2,y2)-S(x2,y2-y1)-S(x2-x1,y2)+S(x2-x1,y2-y1)
     int x1, y1, x2, y2;
     for (int i = 1; i <= M; i++) {
