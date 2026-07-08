@@ -13,7 +13,7 @@ int main() {
 	for (int i = 0; i < N; i++) {
 		cin >> v[i];
 	}
-	quick_sort(&v[0], 0, N - 1);
+	quick_sort(v, 0, N - 1);
 	for (int i = 0; i < N; i++) {
 		cout << v[i] << ' ';
 	}
