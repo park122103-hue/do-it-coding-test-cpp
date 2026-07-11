@@ -29,7 +29,7 @@ int main() {
 		int now = s.back();
 		s.pop_back();
 		while (!edge[now-1].empty()) {
-			if (checked[now-1]) {
+			if (checked[edge[now - 1].back()-1]) {
 				s.push_back(edge[now-1].back());
 				checked[edge[now-1].back()-1] = true;
 			}
