@@ -53,6 +53,8 @@ void merge(int list[], int left, int mid, int right) {
 		sorted[k++] = list[i++];
 	}
 	while (j <= right) {
+      //020에서 추가한 내용
+		g_inversion += j - (left + k);
 		sorted[k++] = list[j++];
 	}
 	for (int t = 0; t < k; t++) {
