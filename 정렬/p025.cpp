@@ -9,7 +9,7 @@ static bool arrive;
 
 void dfs(int v, int depth);
 
-//신기한 소수 찾기 (백준 2023)
+//친구 관계 파악하기 (백준 13023)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
