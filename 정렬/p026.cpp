@@ -13,7 +13,7 @@ static deque<int> bfs_order;
 void dfs(int v);
 void bfs(int v);
 
-//DFS와 BFS 프로그램(백순 1260)
+//DFS와 BFS 프로그램(백준 1260)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
@@ -53,15 +53,13 @@ int main() {
 }
 
 void dfs(int v) {
-	//현재 노드가 방문되지 않은 노드라면
-	if (visited[v]) return;
 	//현재 노드 탐색
 	visited[v] = true;
 	dfs_order.push_back(v);
 	//인접 노드 탐색 시작
 	for (int i = 0; i < edge[v].size(); i++) {
 		int w = edge[v][i];
-		dfs(w);
+		if (!visited[w]) dfs(w);
 	}
 }
 
