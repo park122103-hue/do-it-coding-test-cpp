@@ -7,8 +7,8 @@ using namespace std;
 
 static vector<vector<int>> edge;
 static vector<bool> visited;
-static deque<int> dfs_oerder;
-static deque<int> bfs_oerder;
+static deque<int> dfs_order;
+static deque<int> bfs_order;
 
 void dfs(int v);
 void bfs(int v);
@@ -39,14 +39,14 @@ int main() {
 	visited = vector<bool>(N, false);
 	bfs(S - 1);
 
-	while (!dfs_oerder.empty()) {
-		cout << dfs_oerder.front() + 1 << ' ';
-		dfs_oerder.pop_front();
+	while (!dfs_order.empty()) {
+		cout << dfs_order.front() + 1 << ' ';
+		dfs_order.pop_front();
 	}
 	cout << '\n';
-	while (!bfs_oerder.empty()) {
-		cout << bfs_oerder.front() + 1 << ' ';
-		bfs_oerder.pop_front();
+	while (!bfs_order.empty()) {
+		cout << bfs_order.front() + 1 << ' ';
+		bfs_order.pop_front();
 	}
 	cout << '\n';
 	return 0;
@@ -57,7 +57,7 @@ void dfs(int v) {
 	if (visited[v]) return;
 	//현재 노드 탐색
 	visited[v] = true;
-	dfs_oerder.push_back(v);
+	dfs_order.push_back(v);
 	//인접 노드 탐색 시작
 	for (int i = 0; i < edge[v].size(); i++) {
 		int w = edge[v][i];
@@ -78,7 +78,7 @@ void bfs(int v) {
 		int now = q.front();
 		q.pop_front();
 		//탐색 순서를 기록
-		bfs_oerder.push_back(now);
+		bfs_order.push_back(now);
 		//현재 노드 now의 인접하며 방문하지 않은 노드를 기록
 		for (int i = 0; i < edge[now].size(); i++) {	//조건: 인접 리스트 edge[now]의 리스트를 모두 기록
 			if (!visited[edge[now][i]]) {
